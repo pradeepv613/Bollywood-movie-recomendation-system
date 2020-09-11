@@ -28,7 +28,7 @@ def get_recommendations(title):
     
     return_df = pd.DataFrame(columns=['Title','Genre'])
     return_df['Title'] = tit
-    return_df['Genre']=df2['Genre'].iloc[movie_indices]
+    return_df['Cast']=df2['Cast'].iloc[movie_indices]
     
     return return_df
 
