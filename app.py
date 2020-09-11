@@ -22,11 +22,11 @@ def get_recommendations(title):
     idx = indices[title]
     sim_scores = list(enumerate(cosine_sim[idx]))
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
-    sim_scores = sim_scores[1:6]
+    sim_scores = sim_scores[1:7]
     movie_indices = [i[0] for i in sim_scores]
     tit = df2['Title'].iloc[movie_indices]
     
-    return_df = pd.DataFrame(columns=['Title',' Cast'])
+    return_df = pd.DataFrame(columns=['Title'])
     return_df['Title'] = tit
     return_df['Cast']=df2['Cast'].iloc[movie_indices]
     
