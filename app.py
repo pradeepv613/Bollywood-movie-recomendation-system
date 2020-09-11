@@ -26,7 +26,7 @@ def get_recommendations(title):
     movie_indices = [i[0] for i in sim_scores]
     tit = df2['Title'].iloc[movie_indices]
     
-    return_df = pd.DataFrame(columns=['Title','Genre'])
+    return_df = pd.DataFrame(columns=['Title',' Cast'])
     return_df['Title'] = tit
     return_df['Cast']=df2['Cast'].iloc[movie_indices]
     
