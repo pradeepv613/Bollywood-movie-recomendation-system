@@ -11,14 +11,14 @@ df2 = pd.read_csv('./model/maindata.csv')
 count = CountVectorizer(stop_words='english')
 count_matrix = count.fit_transform(df2['comb'])
 
-cosine_sim2 = cosine_similarity(count_matrix, count_matrix)
+cosine_sim2 = cosine_similarity(count_matrix)
 
 #df2 = df2.reset_index()
 indices = pd.Series(df2.index, index=df2['Title'])
 all_titles = [df2['Title'][i] for i in range(len(df2['Title']))]
 
 def get_recommendations(title):
-    cosine_sim = cosine_similarity(count_matrix, count_matrix)
+    cosine_sim = cosine_similarity(count_matrix)
     idx = indices[title]
     sim_scores = list(enumerate(cosine_sim[idx]))
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
